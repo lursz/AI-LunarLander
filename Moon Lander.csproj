@@ -4,4 +4,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>MoonLander</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="entities\rocket\script\classes\" />
+  </ItemGroup>
 </Project>
