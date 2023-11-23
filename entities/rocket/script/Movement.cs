@@ -34,6 +34,7 @@ public partial class Rocket : CharacterBody2D
     public int CheckCollision()
     {
         KinematicCollision2D collision = MoveAndCollide(Velocity, testOnly: true);
+        GD.Print(collision);
         return collision != null &&
                (Math.Abs(Velocity.Length()) > 0.4 || Math.Abs(Converter.ConvertToDegree(Rotation)) > 15)
             ? 1

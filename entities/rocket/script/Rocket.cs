@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 namespace MoonLander.entities.rocket.script;
@@ -17,6 +16,9 @@ public partial class Rocket : CharacterBody2D
 	/* - Called every frame, delta is the elapsed time since the previous frame - */
 	public override void _Process(double delta)
 	{
+
+		// Assuming you have a collision shape or area named "RocketCollision" and a TileMap named "Tilemap"
+
 		IsColliding();
 		if (Movement(delta) != 0)
 		{
