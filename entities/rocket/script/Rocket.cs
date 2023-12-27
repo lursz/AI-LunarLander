@@ -19,7 +19,7 @@ public partial class Rocket : CharacterBody2D
 
 		// Assuming you have a collision shape or area named "RocketCollision" and a TileMap named "Tilemap"
 
-		IsColliding();
+		// IsColliding();
 		if (Movement(delta) != 0)
 		{
 			GD.Print("Fin!");
@@ -27,5 +27,9 @@ public partial class Rocket : CharacterBody2D
 		}
 	}
 
-	
+	public void Die()
+	{
+		GD.Print("I DIED!");
+	}
+
 }
