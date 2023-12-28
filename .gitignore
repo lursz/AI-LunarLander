@@ -9,5 +9,5 @@ venv3/
 .env/
 env/
 env3/
-
+logs/
 
