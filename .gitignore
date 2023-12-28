@@ -3,4 +3,11 @@
 .vscode/
 .idea/
 .vs/
+.venv/
+venv/
+venv3/
+.env/
+env/
+env3/
+
 
