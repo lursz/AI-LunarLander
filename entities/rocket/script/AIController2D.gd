@@ -16,7 +16,8 @@ func get_action_space() -> Dictionary:
 	}
 	
 func set_action(action) -> void:	
-	print("kupa pierd")
+	print("GdScript action:")
 	print(action)
 	move.x = action['move'][0]
 	move.y = action['move'][1]
+	print(move)

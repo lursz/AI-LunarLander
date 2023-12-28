@@ -7,24 +7,18 @@ namespace MoonLander.entities.rocket.script;
 
 public partial class Rocket : CharacterBody2D
 {
-    
-
-
-
-    public void Movement(double delta, Vector2 move)
+    public void MovementAI(double delta, Vector2 move)
     {
         Vector2 velocity = this.Velocity;
 
         // Calculate movement
-        var angularDirection = Input.IsActionPressed("left") ? -1 :
-            Input.IsActionPressed("right") ? 1 : 0;
-        var acceleration = Input.IsActionPressed("forward") ? 1 : 0;
+        var angularDirection = move.X < -0.66f ? -1 :
+                move.X > 0.66f ? 1 : 0;
+        var acceleration = move.Y < 0f ? 1 : 0;
 
         velocity = CalculateNewVelocity(velocity, angularDirection, acceleration, delta);
 
         RocketLogic();
     }
-
-
 
 }
