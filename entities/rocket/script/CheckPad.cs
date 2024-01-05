@@ -7,34 +7,34 @@ namespace MoonLander.entities.rocket.script;
 
 public partial class Rocket : CharacterBody2D
 {
-    public bool CheckWind()
+    public bool CheckPad()
     {
-        // Checks whether the wind should affect the rocket.
-        // It should only not affect the rocket when it's standing on a landing pad or is slightly above it
+        // Checks whether there's a landing pad above the rocket.
+        // Used for collisions and calculating wind.
 
 
         // check what block is just under the rocket
-        KinematicCollision2D collision = MoveAndCollide(new Vector2(this.Velocity.X, 0.1f), testOnly: true);
+        KinematicCollision2D collision = MoveAndCollide(new Vector2(this.Velocity.X, 0.08f), testOnly: true);
 
         // if no blocks then return true
         if (collision == null)
         {
-            return true;
+            return false;
         }
 
         // check if the block just under rocket is an obstacle, if not then return true
         GodotObject collided = collision.GetCollider();
         if (!collided.HasMeta("obstacle"))
         {
-            return true;
+            return false;
         }
 
         // if the block just under the rocket is a landing pad, if not then return true
         string[] metadataList = (string[])collided.GetMeta("obstacle");
         if (!metadataList.Any(x => x == "landingPad"))
         {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 }

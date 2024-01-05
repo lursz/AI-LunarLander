@@ -11,7 +11,7 @@ public partial class Rocket : CharacterBody2D
 
 
 
-    public void Movement(double delta, Vector2 move)
+    public void Movement(double delta)
     {
         Vector2 velocity = this.Velocity;
 
@@ -20,7 +20,7 @@ public partial class Rocket : CharacterBody2D
             Input.IsActionPressed("right") ? 1 : 0;
         var acceleration = Input.IsActionPressed("forward") ? 1 : 0;
 
-        velocity = CalculateNewVelocity(velocity, angularDirection, acceleration, delta);
+        Velocity = CalculateNewVelocity(velocity, angularDirection, acceleration, delta);
 
         RocketLogic();
     }

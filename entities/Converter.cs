@@ -9,7 +9,7 @@ public static class Converter
         return degree * Mathf.Pi / 180;
     }
 
-    public static double ConvertToDegree(double radian)
+    public static double ConvertToDegrees(double radian)
     {
         return radian * 180 / Mathf.Pi;
     }
