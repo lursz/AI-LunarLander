@@ -21,7 +21,7 @@ project/assembly_name="Moon Lander"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_rl_agents/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
