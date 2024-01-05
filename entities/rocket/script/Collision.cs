@@ -78,7 +78,7 @@ public partial class Rocket : CharacterBody2D
 
 
         // if collided with landing pad, handle the landing
-        if (Math.Abs(this.Velocity.Length()) < 0.4 && Math.Abs(Converter.ConvertToDegree(Rotation)) < 10)
+        if (Math.Abs(this.Velocity.Length()) < 0.4 && Math.Abs(Converter.ConvertToDegrees(Rotation)) < 10)
         {
             GD.Print("You're a stellar pilot!");
             return -1;

@@ -16,7 +16,7 @@ public partial class Rocket : CharacterBody2D
                 move.X > 0.66f ? 1 : 0;
         var acceleration = move.Y < 0f ? 1 : 0;
 
-        velocity = CalculateNewVelocity(velocity, angularDirection, acceleration, delta);
+        Velocity = CalculateNewVelocity(velocity, angularDirection, acceleration, delta);
 
         RocketLogic();
     }

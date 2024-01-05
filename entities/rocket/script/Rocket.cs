@@ -23,13 +23,10 @@ public partial class Rocket : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		GD.Print("Entered Rocket Process");
-		GD.Print(ai_controller);
-		Vector2 testvar = (Vector2)ai_controller.Get("move");
-		GD.Print(testvar);
 
 
 		// AI MOVEMENT
-		MovementAI(delta, testvar);
+		Movement(delta);
 	}
 
 }
