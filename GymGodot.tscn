@@ -5,6 +5,10 @@
 
 [node name="GodotGym" type="Node"]
 script = ExtResource("1")
+enabled = null
+stepLength = null
+environmentNode = null
+debugPrint = null
 
 [node name="WebSocketClient" type="Node" parent="."]
 script = ExtResource("2")

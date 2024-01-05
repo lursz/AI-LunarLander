@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbq3rqpaq51op"]
+[gd_scene load_steps=12 format=3 uid="uid://bbq3rqpaq51op"]
 
 [ext_resource type="PackedScene" uid="uid://co1r3txp1bjy7" path="res://scenes/rocket.tscn" id="1_kglw6"]
 [ext_resource type="Script" path="res://scenes/main/Env.gd" id="1_yrcmj"]
 [ext_resource type="Texture2D" uid="uid://dqxgytd7babge" path="res://entities/Terrain_16x16.png" id="3_a3ltc"]
 [ext_resource type="Script" path="res://entities/tiles/script/Terrain.cs" id="4_ymu77"]
 [ext_resource type="Script" path="res://entities/tiles/script/Landing_pad.cs" id="5_j6bj7"]
+[ext_resource type="PackedScene" uid="uid://bihkdxrkf1phy" path="res://GymGodot.tscn" id="6_1iv3e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qabcm"]
 texture = ExtResource("3_a3ltc")
@@ -924,5 +925,11 @@ script = ExtResource("5_j6bj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Env/Landing_pad/Area2D"]
 shape = SubResource("RectangleShape2D_f8yc8")
+
+[node name="GodotGym" parent="." instance=ExtResource("6_1iv3e")]
+enabled = null
+stepLength = null
+environmentNode = null
+debugPrint = null
 
 [connection signal="area_entered" from="Env/Landing_pad/Area2D" to="Env/Rocket" method="_on_area_2d_area_entered"]

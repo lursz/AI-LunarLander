@@ -20,9 +20,9 @@ public partial class Rocket : CharacterBody2D
 
     private void RocketLogic()
     {
-        CollisionController();
-
-        if (CheckWind())
+        bool isAbovePad = CheckPad();
+        CollisionController(isAbovePad);
+        if (!isAbovePad)
         {
             // the wind will have to be randomly generated somewhere
             float wind = 0.002f;

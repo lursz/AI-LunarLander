@@ -17,17 +17,20 @@ public partial class Rocket : CharacterBody2D
     {
         switch (CheckCollision())
         {
-            case -1:
-                return Collision.OBSTACLE;
             case 1:
+                return Collision.OBSTACLE;
+            case 2:
                 return Collision.PAD;
             default:
                 return Collision.NONE;
         }
     }
 
-    private void CollisionController()
+    private void CollisionController(bool isAbovePad)
     {
+        // adjust position if there's a landing pad just under the rocket
+        if (isAbovePad) AdjustLandingPosition();
+
         Collision collisionType = GetCollisionType();
 
         if (collisionType == Collision.NONE) return;
@@ -37,28 +40,29 @@ public partial class Rocket : CharacterBody2D
             GD.Print("Fin!");
             GetTree().Quit();
         }
-
-        AdjustLandingPosition();
     }
 
     private void AdjustLandingPosition()
     {
-        // if (this.Rotation != 0)
-        // {
-        //     float halfRotation = this.Rotation / 2;
-        //     this.Rotation = halfRotation < 1.5 ? 0 : halfRotation;
-        // }
+        if (Math.Abs(this.Velocity.Length()) >= 0.5 && Math.Abs(Converter.ConvertToDegrees(Rotation)) >= 6) return;
 
-        // // get rid of the horizontal speed on the landing pad
-        // if (this.Velocity.X != 0)
-        // {
-        //     float newX = this.Velocity.X / 2;
-        //     Vector2 newVelocity = new Vector2(newX < 0.05 ? 0 : newX, this.Velocity.Y);
-        //     this.Velocity = newVelocity;
-        // }
+        //TODO: make this work only when the rotation is less than 1.5 degrees or something i dunno
+        if (this.Rotation != 0)
+        {
+            float newRotation = this.Rotation * (3/4);
+            this.Rotation = newRotation < 1.5 ? 0 : newRotation;
+        }
 
-        this.Rotation = 0;
-        this.Velocity = new Vector2(0, 0);
+        // get rid of the horizontal speed on the landing pad
+        if (this.Velocity.X != 0)
+        {
+            float newX = this.Velocity.X * (3/4);
+            Vector2 newVelocity = new Vector2(Math.Abs(newX) < 0.1 ? 0 : newX, this.Velocity.Y);
+            this.Velocity = newVelocity;
+        }
+
+        // this.Rotation = 0;
+        // this.Velocity = new Vector2(0, 0);
     }
 
 
@@ -78,13 +82,14 @@ public partial class Rocket : CharacterBody2D
 
 
         // if collided with landing pad, handle the landing
-        if (Math.Abs(this.Velocity.Length()) < 0.4 && Math.Abs(Converter.ConvertToDegrees(Rotation)) < 10)
+        if (Math.Abs(this.Velocity.Length()) < 0.5 && Math.Abs(Converter.ConvertToDegrees(Rotation)) < 6)
         {
             GD.Print("You're a stellar pilot!");
-            return -1;
+            return 2;
         }
         else
         {
+            GD.Print(Math.Abs(this.Velocity.Length()), " ", Math.Abs(Converter.ConvertToDegrees(Rotation)));
             GD.Print("You're a shitty pilot!");
             return 1;
         }
