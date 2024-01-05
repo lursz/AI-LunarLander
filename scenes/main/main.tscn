@@ -918,6 +918,7 @@ expand_mode = 4
 
 [node name="AIController2D" type="Node2D" parent="Rocket"]
 script = ExtResource("3_ux7q1")
+reset_after = null
 
 [node name="Terrain" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_naw3e")
@@ -939,4 +940,5 @@ shape = SubResource("RectangleShape2D_f8yc8")
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("7_e7nyc")
 
+[connection signal="CrashSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_crash_signal"]
 [connection signal="area_entered" from="Landing_pad/Area2D" to="Rocket" method="_on_area_2d_area_entered"]

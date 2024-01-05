@@ -15,6 +15,11 @@ run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Collision="*res://entities/rocket/script/Collision.cs"
+Rocket="*res://entities/rocket/script/Rocket.cs"
+
 [dotnet]
 
 project/assembly_name="Moon Lander"

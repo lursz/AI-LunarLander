@@ -38,15 +38,15 @@ public partial class Rocket : CharacterBody2D
         if (collisionType == Collision.OBSTACLE)
         {
             GD.Print("Fin!");
-            GetTree().Quit();
+            // GetTree().Quit();
         }
     }
 
     private void AdjustLandingPosition()
     {
-        if (Math.Abs(this.Velocity.Length()) >= 0.5 && Math.Abs(Converter.ConvertToDegrees(Rotation)) >= 6) return;
+        // don't adjust if it should crash
+        if (Math.Abs(this.Velocity.Length()) >= 0.5 || Math.Abs(Converter.ConvertToDegrees(Rotation)) >= 6) return;
 
-        //TODO: make this work only when the rotation is less than 1.5 degrees or something i dunno
         if (this.Rotation != 0)
         {
             float newRotation = this.Rotation * (3/4);
@@ -78,19 +78,22 @@ public partial class Rocket : CharacterBody2D
         string[] metadataList = (string[])collided.GetMeta("obstacle");
 
         // check if collided with landing pad, if no then crash the rocket
-        if (!metadataList.Any(x => x == "landingPad")) return 1;
-
-
+        if (!metadataList.Any(x => x == "landingPad")){
+            EmitSignal(SignalName.CrashSignal);
+            return 1;
+        }
         // if collided with landing pad, handle the landing
         if (Math.Abs(this.Velocity.Length()) < 0.5 && Math.Abs(Converter.ConvertToDegrees(Rotation)) < 6)
         {
             GD.Print("You're a stellar pilot!");
+            EmitSignal(SignalName.LandingSignal);
             return 2;
         }
         else
         {
             GD.Print(Math.Abs(this.Velocity.Length()), " ", Math.Abs(Converter.ConvertToDegrees(Rotation)));
             GD.Print("You're a shitty pilot!");
+            EmitSignal(SignalName.CrashSignal);
             return 1;
         }
 

@@ -7,10 +7,6 @@ namespace MoonLander.entities.rocket.script;
 
 public partial class Rocket : CharacterBody2D
 {
-    
-
-
-
     public void Movement(double delta)
     {
         Vector2 velocity = this.Velocity;
