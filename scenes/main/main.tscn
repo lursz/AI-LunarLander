@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbq3rqpaq51op"]
+[gd_scene load_steps=11 format=3 uid="uid://bbq3rqpaq51op"]
 
-[ext_resource type="Texture2D" uid="uid://nhjc6kor5jqx" path="res://entities/map/stars.jpg" id="1_brm7b"]
 [ext_resource type="PackedScene" uid="uid://co1r3txp1bjy7" path="res://scenes/rocket.tscn" id="1_kglw6"]
 [ext_resource type="Texture2D" uid="uid://dqxgytd7babge" path="res://entities/Terrain_16x16.png" id="3_a3ltc"]
 [ext_resource type="Script" path="res://entities/rocket/script/AIController2D.gd" id="3_ux7q1"]
 [ext_resource type="Script" path="res://entities/tiles/script/Terrain.cs" id="4_ymu77"]
 [ext_resource type="Script" path="res://entities/tiles/script/Landing_pad.cs" id="5_j6bj7"]
-[ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="7_e7nyc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qabcm"]
 texture = ExtResource("3_a3ltc")
@@ -904,16 +902,7 @@ sources/0 = SubResource("TileSetAtlasSource_s6bix")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8yc8"]
 size = Vector2(192, 16)
 
-[node name="Node" type="Node"]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_brm7b")
-expand_mode = 4
+[node name="Node" type="Node2D"]
 
 [node name="Rocket" parent="." instance=ExtResource("1_kglw6")]
 
@@ -937,9 +926,6 @@ position = Vector2(400, 584)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Landing_pad/Area2D"]
 shape = SubResource("RectangleShape2D_f8yc8")
-
-[node name="Sync" type="Node" parent="."]
-script = ExtResource("7_e7nyc")
 
 [connection signal="CrashSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_crash_signal"]
 [connection signal="LandingSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_landing_signal"]

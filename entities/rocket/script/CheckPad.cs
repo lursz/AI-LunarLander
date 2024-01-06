@@ -12,7 +12,6 @@ public partial class RocketController : CharacterBody2D
         // Checks whether there's a landing pad above the rocket.
         // Used for collisions and calculating wind.
 
-
         // check what block is just under the rocket
         KinematicCollision2D collision = MoveAndCollide(new Vector2(this.Velocity.X, 0.08f), testOnly: true);
 

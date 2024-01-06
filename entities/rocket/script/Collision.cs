@@ -37,7 +37,6 @@ public partial class RocketController : CharacterBody2D
 
         if (collisionType == Collision.OBSTACLE)
         {
-            // GD.Print("Fin!");
             // GetTree().Quit();
         }
     }
@@ -85,14 +84,12 @@ public partial class RocketController : CharacterBody2D
         // if collided with landing pad, handle the landing
         if (Math.Abs(this.Velocity.Length()) < 0.5 && Math.Abs(Converter.ConvertToDegrees(Rotation)) < 6)
         {
-            GD.Print("You're a stellar pilot!");
+            GD.Print("JA PIZGAM ON WYLADOWAL ROZUMIECIE TO ON WYLADOWAL");
             EmitSignal(SignalName.LandingSignal);
             return 2;
         }
         else
         {
-            GD.Print(Math.Abs(this.Velocity.Length()), " ", Math.Abs(Converter.ConvertToDegrees(Rotation)));
-            GD.Print("You're a shitty pilot!");
             EmitSignal(SignalName.CrashSignal);
             return 1;
         }
