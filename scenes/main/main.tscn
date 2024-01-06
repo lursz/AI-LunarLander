@@ -918,7 +918,6 @@ expand_mode = 4
 
 [node name="AIController2D" type="Node2D" parent="Rocket"]
 script = ExtResource("3_ux7q1")
-reset_after = null
 
 [node name="Terrain" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_naw3e")
