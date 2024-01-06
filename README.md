@@ -7,4 +7,9 @@ Install:
 
 In order to update used machine learning libraries, you may also:
 - download [this repo](https://github.com/edbeeching/godot_rl_agents_plugin) and copy `addons` and `script_templates` into root folder of your godot project. Then enable the plugin in `plugins` section of Godot Editor.
+- install missing C# libraries
+```bash
+dotnet add package Microsoft.ML
+dotnet add package Microsoft.ML.OnnxRuntime
+```
 
