@@ -3,7 +3,7 @@ using Godot;
 
 namespace MoonLander.entities.rocket.script;
 
-public partial class Rocket : CharacterBody2D
+public partial class RocketController : CharacterBody2D
 {
     private Vector2 CalculateNewVelocity(
         Vector2 velocity,
@@ -25,10 +25,10 @@ public partial class Rocket : CharacterBody2D
         if (!isAbovePad)
         {
             // the wind will have to be randomly generated somewhere
-            float wind = 0.002f;
+            // float wind = 0.002f;
             // shitty wind implementation, ignore wind when already on the landing pad
             // the rocket would drift away otherwise
-            this.Velocity = new Vector2(this.Velocity.X + wind, this.Velocity.Y);
+            // this.Velocity = new Vector2(this.Velocity.X + wind, this.Velocity.Y);
         }
 
         // Move the rocket

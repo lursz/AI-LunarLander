@@ -4,7 +4,7 @@ using Godot;
 
 namespace MoonLander.entities.rocket.script;
 
-public partial class Rocket : CharacterBody2D
+public partial class RocketController : CharacterBody2D
 {
     enum Collision
     {
@@ -37,7 +37,7 @@ public partial class Rocket : CharacterBody2D
 
         if (collisionType == Collision.OBSTACLE)
         {
-            GD.Print("Fin!");
+            // GD.Print("Fin!");
             // GetTree().Quit();
         }
     }

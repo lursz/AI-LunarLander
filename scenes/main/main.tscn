@@ -902,6 +902,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_s6bix")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8yc8"]
+size = Vector2(192, 16)
 
 [node name="Node" type="Node"]
 
@@ -932,6 +933,7 @@ layer_0/tile_data = PackedInt32Array(2359315, 786432, 8, 2359316, 851968, 8, 235
 script = ExtResource("5_j6bj7")
 
 [node name="Area2D" type="Area2D" parent="Landing_pad"]
+position = Vector2(400, 584)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Landing_pad/Area2D"]
 shape = SubResource("RectangleShape2D_f8yc8")
@@ -940,4 +942,6 @@ shape = SubResource("RectangleShape2D_f8yc8")
 script = ExtResource("7_e7nyc")
 
 [connection signal="CrashSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_crash_signal"]
+[connection signal="LandingSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_landing_signal"]
+[connection signal="StayingAliveSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_staying_alive_signal"]
 [connection signal="area_entered" from="Landing_pad/Area2D" to="Rocket" method="_on_area_2d_area_entered"]

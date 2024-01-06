@@ -5,7 +5,7 @@ using Godot;
 namespace MoonLander.entities.rocket.script;
 
 
-public partial class Rocket : CharacterBody2D
+public partial class RocketController : CharacterBody2D
 {
     public bool CheckPad()
     {
