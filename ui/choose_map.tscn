@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt0jn3rej8ld7"]
 
-[ext_resource type="Script" path="res://ui/script/choose_map.cs" id="1_f2xrl"]
+[ext_resource type="Script" path="res://ui/script/ChooseMap.cs" id="1_l1i8m"]
 [ext_resource type="Texture2D" uid="uid://ojyh4iaw7eoj" path="res://ui/assets/menu_bg.jpg" id="2_id7lu"]
 
-[node name="Menu" type="Control"]
+[node name="ChooseMap" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_f2xrl")
+script = ExtResource("1_l1i8m")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -39,20 +39,43 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Map1"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 320
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Map2"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Moon"
 
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Map3"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Mars"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Endor"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 165
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Back"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_map_moon_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_map_mars_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button3" to="." method="_on_map_endor_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
