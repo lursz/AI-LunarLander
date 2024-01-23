@@ -44,7 +44,7 @@ public partial class RocketController : CharacterBody2D
     private void AdjustLandingPosition()
     {
         // don't adjust if it should crash
-        if (Math.Abs(this.Velocity.Length()) >= 0.5 || Math.Abs(Converter.ConvertToDegrees(Rotation)) >= 6) return;
+        if (Math.Abs(this.Velocity.Length()) >= 0.6 || Math.Abs(Converter.ConvertToDegrees(Rotation)) >= 10) return;
 
         if (this.Rotation != 0)
         {
@@ -82,7 +82,7 @@ public partial class RocketController : CharacterBody2D
             return 1;
         }
         // if collided with landing pad, handle the landing
-        if (Math.Abs(this.Velocity.Length()) < 0.5 && Math.Abs(Converter.ConvertToDegrees(Rotation)) < 6)
+        if (Math.Abs(this.Velocity.Length()) < 0.6 && Math.Abs(Converter.ConvertToDegrees(Rotation)) < 10)
         {
             GD.Print("JA PIZGAM ON WYLADOWAL ROZUMIECIE TO ON WYLADOWAL");
             EmitSignal(SignalName.LandingSignal);

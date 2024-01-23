@@ -4,58 +4,59 @@
 [ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="2_ln1xx"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(16, 48)
 
 [node name="Node" parent="." instance=ExtResource("1_mgo2n")]
 
 [node name="Node2" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(1196, 0)
+position = Vector2(1184, 0)
 
 [node name="Node3" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(0, 744)
+position = Vector2(2368, 0)
 
 [node name="Node4" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(1196, 744)
+position = Vector2(3552, 0)
 
 [node name="Node5" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(2375, 7)
+position = Vector2(0, 736)
 
 [node name="Node6" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(3571, 7)
+position = Vector2(1184, 736)
 
 [node name="Node7" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(2375, 751)
+position = Vector2(2368, 736)
 
 [node name="Node8" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(3571, 751)
+position = Vector2(3552, 736)
 
 [node name="Node9" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(-7, 1460)
+position = Vector2(0, 1472)
 
 [node name="Node10" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(1189, 1460)
+position = Vector2(1184, 1472)
 
 [node name="Node11" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(-7, 2204)
+position = Vector2(2368, 1472)
 
 [node name="Node12" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(1189, 2204)
+position = Vector2(3552, 1472)
 
 [node name="Node13" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(2375, 1453)
+position = Vector2(0, 2208)
 
 [node name="Node14" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(3571, 1453)
+position = Vector2(1184, 2208)
 
 [node name="Node15" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(2375, 2197)
+position = Vector2(2368, 2208)
 
 [node name="Node16" parent="." instance=ExtResource("1_mgo2n")]
-position = Vector2(3571, 2197)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2410, 1403)
-zoom = Vector2(0.23, 0.23)
+position = Vector2(3552, 2208)
 
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("2_ln1xx")
-speed_up = 8
+speed_up = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2355, 1423)
+zoom = Vector2(0.24, 0.22)
