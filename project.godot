@@ -20,11 +20,6 @@ config/icon="res://ui/icon.svg"
 Collision="*res://entities/rocket/script/Collision.cs"
 Rocket="*res://entities/rocket/script/Rocket.cs"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-
 [dotnet]
 
 project/assembly_name="Moon Lander"

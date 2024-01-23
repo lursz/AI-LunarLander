@@ -1,4 +1,3 @@
-@tool
 extends ISensor2D
 class_name RaycastSensor2D
 
@@ -57,6 +56,7 @@ func _update():
 					remove_child(ray)
 
 func _ready() -> void:
+	print('ready')
 	_spawn_nodes()
 
 func _spawn_nodes():
@@ -88,8 +88,13 @@ func _spawn_nodes():
 	
 
 func _physics_process(delta: float) -> void:
-	if self._active:
-		self._obs = calculate_raycasts()
+	if not Engine.is_editor_hint():
+		self._active = true
+		if self._active:
+			self._obs = calculate_raycasts()
+
+func get_obs(delta: float) -> Array:
+	return self._obs
 		
 func get_observation() -> Array:
 	if len(self._obs) == 0:
