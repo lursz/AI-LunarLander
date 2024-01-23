@@ -27,8 +27,8 @@ public partial class RocketController : CharacterBody2D
 	
 	public override void _Process(double delta)
 	{
-
-		var landingPad = GetNode<TileMap>("/root/Node2D/Node/Landing_pad");
+		GD.Print(Position);
+		var landingPad = GetNode<TileMap>("/root/Node/Landing_pad");
 		var usedCells = landingPad.GetUsedCells(0);
 
 		this.distance = Calculate_distance(usedCells);
@@ -40,9 +40,9 @@ public partial class RocketController : CharacterBody2D
 		Vector2 move = (Vector2)ai_controller.Get("move");
 
 		// HUMAN MOVEMENT
-		// Movement(delta);
+		Movement(delta);
 		// AI MOVEMENT
-		MovementAI(delta, move);
+		// MovementAI(delta, move);
 	}
 
 	private float Calculate_distance(Godot.Collections.Array<Vector2I> cells)
