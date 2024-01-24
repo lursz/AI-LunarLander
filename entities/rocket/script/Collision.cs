@@ -90,7 +90,7 @@ public partial class RocketController : CharacterBody2D
         }
         else
         {
-            EmitSignal(SignalName.CrashSignal);
+            EmitSignal(SignalName.LandingPadCrashSignal);
             return 1;
         }
 

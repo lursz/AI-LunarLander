@@ -922,7 +922,6 @@ position = Vector2(926, 168)
 
 [node name="AIController2D" type="Node2D" parent="Rocket"]
 script = ExtResource("3_ux7q1")
-reset_after = null
 
 [node name="RaycastSensor2D" type="Node2D" parent="Rocket"]
 script = ExtResource("3_4xk48")
@@ -968,6 +967,7 @@ position = Vector2(400, 584)
 shape = SubResource("RectangleShape2D_f8yc8")
 
 [connection signal="CrashSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_crash_signal"]
+[connection signal="LandingPadCrashSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_landing_pad_crash_signal"]
 [connection signal="LandingSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_landing_signal"]
 [connection signal="StayingAliveSignal" from="Rocket" to="Rocket/AIController2D" method="_on_rocket_staying_alive_signal"]
 [connection signal="area_entered" from="Landing_pad/Area2D" to="Rocket" method="_on_area_2d_area_entered"]

@@ -43,11 +43,17 @@ func reset() -> void:
 
 
 func _on_rocket_crash_signal():
-	reward -= 100.0
+	reward -= 200.0
 	reset()
 
 func _on_rocket_landing_signal():
-	reward +=  500.0
+	reward +=  1000.0
+	reset()
+
+func _on_rocket_landing_pad_crash_signal():
+	var rocket = get_parent()
+	var speed = rocket.velocity.length()
+	reward -= (100.0 + speed * 50.0) 
 	reset()
 
 func _on_rocket_staying_alive_signal(degrees, speed, distance):
@@ -65,14 +71,16 @@ func _on_rocket_staying_alive_signal(degrees, speed, distance):
 	# elif abs(degrees) > 30.0:
 	# 	reward -= 2
 
-	# if speed > 2.0:
-	# 	reward -= 5
+	if speed > 1.5:
+		reward -= 10
 
 	var dist_reward = 0.0
 	if distance < best_distance:
 		dist_reward += best_distance - max(distance, 105)
 		best_distance = max(distance, 105)
 	# print("Distance ", distance, " Distance reward: ", dist_reward*8, " Best distance: ", best_distance)
+	elif distance+100 > best_distance:
+		dist_reward -= 2.5
 	if (dist_reward * 8.0) < 20.0:
 		reward += dist_reward * 8.0
 	
@@ -81,9 +89,9 @@ func _on_rocket_staying_alive_signal(degrees, speed, distance):
 	
 	var speed_reward = 0
 	var rotation_reward = 0
-	if abs(distance_x) < 100.0 and abs(distance_y) < 200:
+	if abs(distance_x) < 120.0 and abs(distance_y) < 200:
 		if speed < 1.2:
-			speed_reward = (1.2 - max(speed-0.2, 0.4)) * 20.0
+			speed_reward = (1.5 - max(speed-0.1, 0)) * 50*(2.2-speed)**3
 		if abs(degrees) < 30.0:
 			rotation_reward = (30.0 - max(abs(degrees)-5.0, 6.0)) * 1.5
 	# print("Speed: ", speed, "Speed reward: ", speed_reward)

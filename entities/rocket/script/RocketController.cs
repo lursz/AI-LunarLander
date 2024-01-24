@@ -21,6 +21,8 @@ public partial class RocketController : CharacterBody2D
     public delegate void LandingSignalEventHandler();
     [Signal]
     public delegate void StayingAliveSignalEventHandler();
+    [Signal]
+    public delegate void LandingPadCrashSignalEventHandler();
 
     public override void _Ready()
     {
