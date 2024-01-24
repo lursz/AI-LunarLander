@@ -53,10 +53,10 @@ position = Vector2(2368, 2208)
 [node name="Node16" parent="." instance=ExtResource("1_mgo2n")]
 position = Vector2(3552, 2208)
 
-[node name="Sync" type="Node" parent="."]
-script = ExtResource("2_ln1xx")
-speed_up = 2
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2355, 1423)
 zoom = Vector2(0.24, 0.22)
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("2_ln1xx")
+speed_up = 2

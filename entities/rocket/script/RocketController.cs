@@ -37,8 +37,7 @@ public partial class RocketController : CharacterBody2D
 
         // calculate the position of the landing pad
         if (goal_pos == new Godot.Vector2(0, 0)){
-            // var landingPad = GetNode<TileMap>("/root/Node/Landing_pad");
-            var landingPad = GetNode<TileMap>("/root/Node2D/Node/Landing_pad");
+            var landingPad = GetNode<TileMap>("../Landing_pad");
             var usedCells = landingPad.GetUsedCells(0);
             Calculate_goal_pos(usedCells);
         }
