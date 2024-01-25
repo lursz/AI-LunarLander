@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbq3rqpaq51op"]
+[gd_scene load_steps=17 format=3 uid="uid://bbq3rqpaq51op"]
 
+[ext_resource type="Texture2D" uid="uid://ojyh4iaw7eoj" path="res://ui/assets/menu_bg.jpg" id="1_cdupg"]
 [ext_resource type="PackedScene" uid="uid://co1r3txp1bjy7" path="res://scenes/rocket.tscn" id="1_kglw6"]
 [ext_resource type="Script" path="res://addons/godot_rl_agents/sensors/sensors_2d/RaycastSensor2D.gd" id="3_4xk48"]
 [ext_resource type="Texture2D" uid="uid://dqxgytd7babge" path="res://entities/Terrain_16x16.png" id="3_a3ltc"]
@@ -916,6 +917,13 @@ sources/0 = SubResource("TileSetAtlasSource_s6bix")
 size = Vector2(192, 16)
 
 [node name="Node" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -55.0
+offset_right = 1191.0
+offset_bottom = 715.0
+texture = ExtResource("1_cdupg")
 
 [node name="Rocket" parent="." instance=ExtResource("1_kglw6")]
 position = Vector2(926, 168)

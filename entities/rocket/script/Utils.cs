@@ -34,4 +34,14 @@ public partial class RocketController : CharacterBody2D
         // Move the rocket
         MoveAndSlide();
     }
+
+    public void updateSpeedometer()
+    {
+        GetNode<Label>("HUD/Speedometer").Text = $"V: {this.Velocity.Length():0.00} m/s";
+    }
+
+    public void updateAltimeter()
+    {
+        GetNode<Label>("HUD/Altimeter").Text = $"Alt: {this.Position.Y:0.00} m";
+    }
 }
