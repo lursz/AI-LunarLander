@@ -12,11 +12,11 @@ public partial class RocketController : CharacterBody2D
         Vector2 velocity = this.Velocity;
 
         // Calculate movement
-        var angularDirection = move.X < -0.66f ? -1 :
-                move.X > 0.66f ? 1 : 0;
+        var angularDirection = move.X < -0.66f ? -0.6 :
+                move.X > 0.66f ? 0.6 : 0;
         var acceleration = move.Y < 0f ? 1 : 0;
 
-        Velocity = CalculateNewVelocity(velocity, angularDirection, acceleration, delta);
+        Velocity = CalculateNewVelocity(velocity, (float)angularDirection, acceleration, delta);
 
         RocketLogic();
     }

@@ -12,11 +12,11 @@ public partial class RocketController : CharacterBody2D
         Vector2 velocity = this.Velocity;
 
         // Calculate movement
-        var angularDirection = Input.IsActionPressed("left") ? -1 :
-            Input.IsActionPressed("right") ? 1 : 0;
+        var angularDirection = Input.IsActionPressed("left") ? -0.6 :
+            Input.IsActionPressed("right") ? 0.6 : 0;
         var acceleration = Input.IsActionPressed("forward") ? 1 : 0;
 
-        Velocity = CalculateNewVelocity(velocity, angularDirection, acceleration, delta);
+        Velocity = CalculateNewVelocity(velocity, (float)angularDirection, acceleration, delta);
 
         RocketLogic();
     }

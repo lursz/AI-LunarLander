@@ -84,7 +84,6 @@ public partial class RocketController : CharacterBody2D
         // if collided with landing pad, handle the landing
         if (Math.Abs(this.Velocity.Length()) < 0.8 && Math.Abs(Converter.ConvertToDegrees(Rotation)) < 30)
         {
-            GD.Print("JA PIZGAM ON WYLADOWAL ROZUMIECIE TO ON WYLADOWAL");
             EmitSignal(SignalName.LandingSignal);
             return 2;
         }

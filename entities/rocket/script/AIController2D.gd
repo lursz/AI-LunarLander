@@ -1,6 +1,7 @@
 extends AIController2D
 var move = Vector2.ZERO
 var steps = 0
+var max_speed_ticks = 100
 
 @onready var rocket = get_parent()
 var best_distance = 0
@@ -11,10 +12,10 @@ func get_obs() -> Dictionary:
 	var normalized_rotation = rocket.rotation / 6.0 * 5.0
 	var result: Array = [normalized_distance_x, normalized_distance_y, rocket.velocity.x, rocket.velocity.y, normalized_rotation]
 	# print(result)
-	# if typeof(rocket.ray_results) == TYPE_ARRAY:
-		# result += rocket.ray_results
-	# else:
-		# result += [0, 0, 0, 0, 0, 0, 0, 0]
+	if typeof(rocket.ray_results) == TYPE_ARRAY:
+		result += rocket.ray_results
+	else:
+		result += [0, 0, 0, 0, 0, 0, 0, 0]
 	return {"obs": result}
 
 func get_reward() -> float:	
@@ -36,6 +37,7 @@ func set_action(action) -> void:
 
 func reset() -> void:
 	steps = 0
+	max_speed_ticks = 100
 	var rocket = get_parent()
 	rocket.propagate_call("Reset")
 	await get_tree().process_frame
@@ -47,7 +49,7 @@ func _on_rocket_crash_signal():
 	reset()
 
 func _on_rocket_landing_signal():
-	reward +=  1000.0
+	reward +=  1500.0
 	reset()
 
 func _on_rocket_landing_pad_crash_signal():
@@ -90,8 +92,9 @@ func _on_rocket_staying_alive_signal(degrees, speed, distance):
 	var speed_reward = 0
 	var rotation_reward = 0
 	if abs(distance_x) < 120.0 and abs(distance_y) < 200:
-		if speed < 1.2:
+		if speed < 1.2 and max_speed_ticks > 0:
 			speed_reward = (1.5 - max(speed-0.1, 0)) * 50*(2.2-speed)**3
+			max_speed_ticks -= 1
 		if abs(degrees) < 30.0:
 			rotation_reward = (30.0 - max(abs(degrees)-5.0, 6.0)) * 1.5
 	# print("Speed: ", speed, "Speed reward: ", speed_reward)
