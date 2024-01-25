@@ -73,7 +73,7 @@ func _on_rocket_staying_alive_signal(degrees, speed, distance):
 	# elif abs(degrees) > 30.0:
 	# 	reward -= 2
 
-	if speed > 1.5:
+	if speed > 2:
 		reward -= 10
 
 	var dist_reward = 0.0

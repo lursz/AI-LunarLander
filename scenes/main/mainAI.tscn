@@ -936,7 +936,6 @@ script = ExtResource("3_y01u6")
 script = ExtResource("4_7rka1")
 collide_with_areas = true
 n_rays = 8.0
-ray_length = 150
 
 [node name="Terrain" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_naw3e")

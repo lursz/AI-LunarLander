@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbq3rqpaq51op"]
+[gd_scene load_steps=18 format=3 uid="uid://bbq3rqpaq51op"]
 
 [ext_resource type="Texture2D" uid="uid://ojyh4iaw7eoj" path="res://ui/assets/menu_bg.jpg" id="1_cdupg"]
 [ext_resource type="PackedScene" uid="uid://co1r3txp1bjy7" path="res://scenes/rocket.tscn" id="1_kglw6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://entities/rocket/script/AIController2D.gd" id="3_ux7q1"]
 [ext_resource type="Script" path="res://entities/tiles/script/Terrain.cs" id="4_ymu77"]
 [ext_resource type="Script" path="res://entities/tiles/script/Landing_pad.cs" id="5_j6bj7"]
+[ext_resource type="PackedScene" uid="uid://dweeq1woe3e1t" path="res://ui/Particle.tscn" id="5_xlv66"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qabcm"]
 texture = ExtResource("3_a3ltc")
@@ -935,7 +936,9 @@ script = ExtResource("3_ux7q1")
 script = ExtResource("3_4xk48")
 collide_with_areas = true
 n_rays = 8.0
-ray_length = 150
+
+[node name="Explosion" parent="Rocket" instance=ExtResource("5_xlv66")]
+emitting = false
 
 [node name="Terrain" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_naw3e")

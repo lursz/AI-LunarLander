@@ -8,6 +8,8 @@ public partial class RocketController : CharacterBody2D
 {
     Node2D raycast;
     Variant ray_results;
+    GpuParticles2D explosion;
+    private Godot.Vector2 startingPos;
 
     private bool humanMovement = true;
     private readonly float _angularSpeed = Mathf.Pi;
@@ -36,6 +38,8 @@ public partial class RocketController : CharacterBody2D
         {
             humanMovement = false;
         }
+        startingPos = Position;
+
     }
 
 
@@ -79,7 +83,15 @@ public partial class RocketController : CharacterBody2D
 
     public void Reset()
     {
-        Position = new Godot.Vector2(926, 168);
+        if (!humanMovement){
+            Godot.Vector2 [] posArray = {new Godot.Vector2(1074,152), new Godot.Vector2(342, 403), new Godot.Vector2(1113, 445), new Godot.Vector2(420, 806), new Godot.Vector2(536, 1692), new Godot.Vector2(1145, 1551)};
+            Random random = new Random();
+            int index = random.Next(posArray.Length);
+            Position = posArray[index];
+        }
+        else{
+            Position = startingPos;
+        }
         Rotation = 0;
         Velocity = new Godot.Vector2(0, 0);
     }

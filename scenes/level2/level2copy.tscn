@@ -1,5 +1,6 @@
-[gd_scene load_steps=81 format=3 uid="uid://dd1xwt2wcy6lt"]
+[gd_scene load_steps=82 format=3 uid="uid://dd1xwt2wcy6lt"]
 
+[ext_resource type="Texture2D" uid="uid://ojyh4iaw7eoj" path="res://ui/assets/menu_bg.jpg" id="1_hi48f"]
 [ext_resource type="PackedScene" uid="uid://co1r3txp1bjy7" path="res://scenes/rocket.tscn" id="1_k4b5o"]
 [ext_resource type="Script" path="res://entities/rocket/script/AIController2D.gd" id="2_ykhsy"]
 [ext_resource type="Script" path="res://addons/godot_rl_agents/sensors/sensors_2d/RaycastSensor2D.gd" id="3_7umt2"]
@@ -1116,8 +1117,15 @@ size = Vector2(32, 32)
 
 [node name="Node" type="Node2D"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -55.0
+offset_right = 1691.0
+offset_bottom = 2381.0
+texture = ExtResource("1_hi48f")
+
 [node name="Rocket" parent="." instance=ExtResource("1_k4b5o")]
-position = Vector2(926, 168)
+position = Vector2(1074, 152)
 
 [node name="AIController2D" type="Node2D" parent="Rocket"]
 script = ExtResource("2_ykhsy")
@@ -1126,7 +1134,6 @@ script = ExtResource("2_ykhsy")
 script = ExtResource("3_7umt2")
 collide_with_areas = true
 n_rays = 8.0
-ray_length = 150
 
 [node name="Terrain" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_u7dxw")

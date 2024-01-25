@@ -78,6 +78,7 @@ public partial class RocketController : CharacterBody2D
 
         // check if collided with landing pad, if no then crash the rocket
         if (!metadataList.Any(x => x == "landingPad")){
+
             EmitSignal(SignalName.CrashSignal);
             return 1;
         }
