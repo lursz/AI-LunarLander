@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://deball1s31b0a"]
+
+[ext_resource type="PackedScene" uid="uid://w0tcsxf2brrs" path="res://scenes/level2/level2.tscn" id="2_hxrt1"]
+[ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="2_jkcck"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(16, 48)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2570, 1163)
+zoom = Vector2(0.24, 0.22)
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("2_jkcck")
+speed_up = 2
+
+[node name="Node" parent="." instance=ExtResource("2_hxrt1")]
+
+[node name="Node2" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(1712, 0)
+
+[node name="Node3" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(0, 2432)
+
+[node name="Node4" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(1712, 2432)
+
+[node name="Node5" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(3424, 0)
+
+[node name="Node6" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(5136, 0)
+
+[node name="Node7" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(3424, 2432)
+
+[node name="Node8" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(5136, 2432)
+
+[node name="Node9" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(0, 4864)
+
+[node name="Node10" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(1712, 4864)
+
+[node name="Node11" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(0, 7296)
+
+[node name="Node12" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(1712, 7296)
+
+[node name="Node13" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(3424, 4864)
+
+[node name="Node14" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(5136, 4864)
+
+[node name="Node15" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(3424, 7296)
+
+[node name="Node16" parent="." instance=ExtResource("2_hxrt1")]
+position = Vector2(5136, 7296)

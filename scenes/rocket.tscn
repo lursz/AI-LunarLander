@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://co1r3txp1bjy7"]
+[gd_scene load_steps=5 format=3 uid="uid://co1r3txp1bjy7"]
 
 [ext_resource type="Script" path="res://entities/rocket/script/RocketController.cs" id="1_f5qie"]
 [ext_resource type="Texture2D" uid="uid://csd7x1hj58o43" path="res://entities/rocket/assets/Rocket.png" id="2_rmkq6"]
@@ -7,9 +7,6 @@
 size = Vector2(82.75, 133.5)
 
 [sub_resource type="SystemFont" id="SystemFont_ponn1"]
-font_names = PackedStringArray("Rockwell")
-
-[sub_resource type="SystemFont" id="SystemFont_mgw63"]
 font_names = PackedStringArray("Rockwell")
 
 [node name="Rocket" type="CharacterBody2D"]
@@ -35,12 +32,5 @@ offset_right = -25.0
 offset_bottom = 78.0
 grow_horizontal = 0
 theme_override_fonts/font = SubResource("SystemFont_ponn1")
-theme_override_font_sizes/font_size = 60
-text = "0"
-
-[node name="Altimeter" type="Label" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = SubResource("SystemFont_mgw63")
 theme_override_font_sizes/font_size = 60
 text = "0"

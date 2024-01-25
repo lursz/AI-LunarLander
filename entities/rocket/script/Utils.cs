@@ -7,7 +7,7 @@ public partial class RocketController : CharacterBody2D
 {
     private Vector2 CalculateNewVelocity(
         Vector2 velocity,
-        int angularDirection,
+        float angularDirection,
         int acceleration,
         double delta)
     {
@@ -40,8 +40,5 @@ public partial class RocketController : CharacterBody2D
         GetNode<Label>("HUD/Speedometer").Text = $"V: {this.Velocity.Length():0.00} m/s";
     }
 
-    public void updateAltimeter()
-    {
-        GetNode<Label>("HUD/Altimeter").Text = $"Alt: {this.Position.Y:0.00} m";
-    }
+
 }

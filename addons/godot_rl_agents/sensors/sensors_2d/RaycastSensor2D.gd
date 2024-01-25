@@ -56,7 +56,7 @@ func _update():
 					remove_child(ray)
 
 func _ready() -> void:
-	print('ready')
+	# print('ready')
 	_spawn_nodes()
 
 func _spawn_nodes():
@@ -98,7 +98,7 @@ func get_obs(delta: float) -> Array:
 		
 func get_observation() -> Array:
 	if len(self._obs) == 0:
-		print("obs was null, forcing raycast update")
+		# print("obs was null, forcing raycast update")
 		return self.calculate_raycasts()
 	return self._obs
 	

@@ -14,7 +14,7 @@ public partial class Menu : Control
 
 	public void _on_play_ai_pressed()
 	{
-		GetTree().ChangeSceneToFile("res://scenes/main/main.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/main/mainAI.tscn");
 	}
 
 	public void _on_play_human_pressed()

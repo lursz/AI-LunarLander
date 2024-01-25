@@ -1,7 +1,7 @@
 extends AIController2D
 var move = Vector2.ZERO
 var steps = 0
-var max_speed_ticks = 100
+var max_speed_ticks = 120
 
 @onready var rocket = get_parent()
 var best_distance = 0
@@ -60,7 +60,7 @@ func _on_rocket_landing_pad_crash_signal():
 
 func _on_rocket_staying_alive_signal(degrees, speed, distance):
 	steps += 1
-	if steps > 2500:
+	if steps > 6500:
 		reward -= 100.0
 		reset()
 

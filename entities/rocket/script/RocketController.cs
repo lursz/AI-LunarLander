@@ -32,6 +32,10 @@ public partial class RocketController : CharacterBody2D
         // ai_controller.Set("reward", 0.0f);
         raycast = GetNode<Node2D>("RaycastSensor2D");
         raycast.Call("activate");
+        if (HasNode("../Sync") || (HasNode("../../Sync")))
+        {
+            humanMovement = false;
+        }
     }
 
 
@@ -60,7 +64,7 @@ public partial class RocketController : CharacterBody2D
         else
         { MovementAI(delta, move); }
         updateSpeedometer();
-        updateAltimeter();
+        // updateAltimeter();
     }
 
     private void Calculate_goal_pos(Godot.Collections.Array<Vector2I> cells)
