@@ -1,5 +1,5 @@
 # AI-LunarLander
-This repo contains a simple Lunar Lander game with AI agents. The aim of the project was to create an arcade experience resembling the original and then connect it with machine learning algorithms. However, we had placed a certain constraint upon ourselves - to only use open source tools. Thus we have decided to use [Godot](https://godotengine.org/) as a game engine and [Godot RL Agents](https://github.com/edbeeching/godot_rl_agents) as a reinforcement learning framework. The core of the game is written in C#, whilst the RL Agents part is written in GDScript.
+This repo contains a simple Lunar Lander game with AI agents. The aim of the project was to create an arcade experience resembling the original and then connect it with machine learning algorithms. However, we had placed a certain constraint upon ourselves - to only use open source tools. Thus, we have decided to use [Godot](https://godotengine.org/) as a game engine and [Godot RL Agents](https://github.com/edbeeching/godot_rl_agents) as a reinforcement learning framework. The core of the game is written in C#, whilst the RL Agents part is written in GDScript.
 
 ## Run
 Install:  
@@ -15,7 +15,7 @@ dotnet add package Microsoft.ML.OnnxRuntime
 ```
 
 ## Reward function
-A solid reward function is the key to success in reinforcement learning. We  learnt this the hard way, but eventually we managed to create a decent reward function. The function is based on the following factors:
+A solid reward function is the key to success in reinforcement learning. We  learnt this the hard way, but eventually we managed to create a decent reward function. It is based on the following factors:
 - successful / unsuccessful landing
 - landing pad contact
 - distance from the landing pad
